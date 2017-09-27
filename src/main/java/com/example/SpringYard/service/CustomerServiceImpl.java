@@ -2,6 +2,7 @@ package com.example.SpringYard.service;
 
 import com.example.SpringYard.model.Customer;
 import com.example.SpringYard.repository.CustomerRepository;
+import com.example.SpringYard.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findCustomerById(int id) {
+    public Customer findCustomerById(Long id) {
         return customerRepository.findCustomerById(id);
     }
 

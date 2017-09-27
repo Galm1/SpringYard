@@ -25,7 +25,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     private final String SELECT_BY_ID_SQL = "SELECT * FROM customer WHERE id = ?";
 
     @Override
-    public Customer findCustomerById(int id) {
+    public Customer findCustomerById(Long id) {
         return jdbcTemplate.queryForObject(SELECT_BY_ID_SQL, new CustomerMapper(), id);
     }
 

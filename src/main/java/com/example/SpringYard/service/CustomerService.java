@@ -9,7 +9,7 @@ public interface CustomerService {
 
     public void updateCustomer(int id, Customer customer);
 
-    public Customer findCustomerById(int id);
+    public Customer findCustomerById(Long id);
 
     public List<Customer> getAllCustomers();
 
