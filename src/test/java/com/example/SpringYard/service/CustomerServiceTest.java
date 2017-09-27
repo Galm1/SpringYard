@@ -1,21 +1,23 @@
 package com.example.SpringYard.service;
 
+import com.example.SpringYard.common.CustomerUtils;
 import com.example.SpringYard.model.Customer;
-import com.example.SpringYard.service.CustomerService;
-import com.example.SpringYard.repository.CustomerRepository;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.*;
 
 import static com.example.SpringYard.common.CustomerUtils.createTestPerson;
 import static com.example.SpringYard.common.CustomerUtils.findInList;
 
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class CustomerServiceTest {
 
     @Autowired
