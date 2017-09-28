@@ -5,7 +5,7 @@ import com.example.SpringYard.model.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    public Customer addCustomer(Customer customer);
+    public void addCustomer(Customer customer);
 
     public void updateCustomer(Customer customer);
 
