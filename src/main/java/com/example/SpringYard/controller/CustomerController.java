@@ -35,14 +35,14 @@ public class CustomerController {
     @GetMapping("/api/customers")
     public String getAll(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());
-        return "customers";
+        return "ok";
     }
 
 
     @GetMapping("/api/customer/{id}")
-    public Customer getCustomer(@PathVariable("id") Long id) {
-        return (Customer) customerService.findCustomerById(id);
+    public String getCustomer(@PathVariable("id") Long id, Model model) {
+      Customer customer = customerService.findCustomerById(id);
+      model.addAttribute("customer", customer);
+      return "ok";
     }
-
-
 }
