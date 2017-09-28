@@ -39,7 +39,10 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
-
+    @GetMapping("/api/customer/{id}")
+    public Customer getCustomer(@PathVariable("id") Long id) {
+        return (Customer) customerService.findCustomerById(id);
+    }
 
 
 }
