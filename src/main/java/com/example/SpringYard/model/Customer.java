@@ -1,11 +1,9 @@
 package com.example.SpringYard.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="customer")
 public class Customer {
     Long id;
     String firstName;
@@ -16,7 +14,10 @@ public class Customer {
     public Customer() {
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public Long getId() {
+
         return id;
     }
 
@@ -24,6 +25,7 @@ public class Customer {
         this.id = id;
     }
 
+    @Column(name="firstname")
     public String getFirstName() {
         return firstName;
     }
@@ -32,6 +34,7 @@ public class Customer {
         this.firstName = firstName;
     }
 
+    @Column(name = "lastname")
     public String getLastName() {
         return lastName;
     }
@@ -40,6 +43,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -48,12 +52,9 @@ public class Customer {
         this.phone = phone;
     }
 
+    @Column(name = "email")
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override
