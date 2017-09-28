@@ -2,7 +2,6 @@ package com.example.SpringYard.service;
 
 import com.example.SpringYard.model.Customer;
 import com.example.SpringYard.repository.CustomerRepository;
-import com.example.SpringYard.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,30 +15,30 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
-    public void addCustomer(Customer customer) {
-        customerRepository.addCustomer(customer);
+    public Customer addCustomer(Customer customer) {
+        return (Customer) customerRepository.save(customer);
     }
 
     @Override
     @Transactional
     public void updateCustomer(int id, Customer customer) {
-        customerRepository.updateCustomer(id, customer);
+        customerRepository.save(customer);
     }
 
     @Override
     public Customer findCustomerById(Long id) {
-        return customerRepository.findCustomerById(id);
+        return (Customer) customerRepository.findOne(id);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return customerRepository.getAllCustomers();
+        return customerRepository.findAll();
     }
 
     @Override
     @Transactional
     public void deleteCustomer(int id) {
-        customerRepository.deleteCustomer(id);
+        customerRepository.delete(id);
     }
 
 }
