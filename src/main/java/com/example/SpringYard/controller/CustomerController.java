@@ -4,10 +4,12 @@ import com.example.SpringYard.model.Customer;
 import com.example.SpringYard.service.CustomerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class CustomerController {
@@ -18,10 +20,10 @@ public class CustomerController {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/api/customer")
-    public String addCustomer(@RequestBody String json) throws IOException {
-        Customer customer = objectMapper.readValue(json, Customer.class);
-        customerService.addCustomer(customer);
-        return "ok";
+    String getCustomers(Model model) {
+        List<Customer> customers = customerService.getAllCustomers();
+        model.addAttribute("ListOfCustomers", customers);
+        return "view_customers";
     }
 
     @PutMapping("/api/customer/{id}")
