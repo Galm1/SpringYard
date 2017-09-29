@@ -1,9 +1,16 @@
 package com.example.SpringYard.model;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name = "customer")
 public class Customer {
     Long id;
     String firstName;
@@ -11,13 +18,9 @@ public class Customer {
     String phone;
     String email;
 
-    public Customer() {
-    }
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     public Long getId() {
-
         return id;
     }
 
@@ -79,5 +82,16 @@ public class Customer {
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
