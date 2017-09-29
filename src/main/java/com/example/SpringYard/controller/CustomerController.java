@@ -2,6 +2,7 @@ package com.example.SpringYard.controller;
 
 import com.example.SpringYard.model.Customer;
 import com.example.SpringYard.service.CustomerService;
+import com.example.SpringYard.service.CustomerServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +16,13 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    CustomerService customerService;
+    CustomerServiceImpl customerServiceImpl;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/api/customer")
     String getCustomers(Model model) {
-        List<Customer> customers = customerService.getAllCustomers();
+        List<Customer> customers = customerServiceImpl.getAllCustomers();
         model.addAttribute("ListOfCustomers", customers);
         return "view_customers";
     }
@@ -30,20 +31,20 @@ public class CustomerController {
     public String updateCustomer(@PathVariable("id") Long id, @RequestBody String json) throws IOException {
         Customer customer = objectMapper.readValue(json, Customer.class);
         customer.setId(id);
-        customerService.updateCustomer(customer);
+        customerServiceImpl.updateCustomer(customer);
         return "ok";
     }
 
     @GetMapping("/api/customers")
     public String getAll(Model model) {
-        model.addAttribute("customers", customerService.getAllCustomers());
+        model.addAttribute("customers", customerServiceImpl.getAllCustomers());
         return "ok";
     }
 
 
     @GetMapping("/api/customer/{id}")
     public String getCustomer(@PathVariable("id") Long id, Model model) {
-      Customer customer = customerService.findCustomerById(id);
+      Customer customer = customerServiceImpl.findCustomerById(id);
       model.addAttribute("customer", customer);
       return "ok";
     }

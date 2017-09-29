@@ -12,14 +12,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customer")
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long id;
     String firstName;
     String lastName;
     String phone;
     String email;
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+
     public Long getId() {
         return id;
     }
