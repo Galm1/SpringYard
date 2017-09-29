@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"com.delivery.request"})
+@ComponentScan({"com.SpringYard"})
 @EntityScan("com.SpringYard.model")
 @EnableJpaRepositories("com.SpringYard.repository")
 public class SpringYardApplication {
