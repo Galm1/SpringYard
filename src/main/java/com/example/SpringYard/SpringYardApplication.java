@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan({"com.delivery.request"})
-@EntityScan("com.delivery.domain")
-@EnableJpaRepositories("com.delivery.repository")
+@EntityScan("com.SpringYard.model")
+@EnableJpaRepositories("com.SpringYard.repository")
 public class SpringYardApplication {
 
 	public static void main(String[] args) {
