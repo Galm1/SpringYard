@@ -62,4 +62,9 @@ public class CustomerController {
 
         return "redirect:/customers";
     }
+
+    @RequestMapping("/api/new_customer")
+    public String newCustomer(Model model) {
+        return "new_customer";
+    }
 }
