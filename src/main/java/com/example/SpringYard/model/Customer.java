@@ -21,6 +21,9 @@ public class Customer {
     String phone;
     String email;
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Long getId() {
         return id;

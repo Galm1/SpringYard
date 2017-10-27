@@ -48,4 +48,18 @@ public class CustomerController {
       model.addAttribute("customer", customer);
       return "ok";
     }
+
+    @RequestMapping("/api/add_customer")
+    public String createCustomer(@RequestParam(value = "first_name") String firstName, @RequestParam(value = "last_name") String lastName, @RequestParam(value = "email") String email, @RequestParam(value = "phone") String phone, Model model) {
+        Customer customer = new Customer();
+
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setEmail(email);
+        customer.setPhone(phone);
+
+        customerServiceImpl.addCustomer(customer);
+
+        return "redirect:/customers";
+    }
 }
